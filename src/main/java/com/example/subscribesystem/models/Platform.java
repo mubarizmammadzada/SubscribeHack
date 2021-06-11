@@ -22,5 +22,4 @@ public class Platform {
     @Id
     private int id;
     private String name;
-    private double price;
 }

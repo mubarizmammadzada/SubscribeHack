@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Data
@@ -19,9 +18,8 @@ public class Reminder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Integer id;
-    private String platFormName;
-    private Date endDate;
+    private LocalDateTime endDate;
     @ManyToOne(cascade = CascadeType.ALL)
     @JsonManagedReference
-    private MyUser user;
+    private Subsciber subsciber;
 }

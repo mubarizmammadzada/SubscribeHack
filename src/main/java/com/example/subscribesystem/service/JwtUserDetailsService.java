@@ -1,7 +1,6 @@
 package com.example.subscribesystem.service;
 
 import com.example.subscribesystem.repositories.UserRepository;
-import com.example.subscribesystem.token.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.example.subscribesystem.models.MyUser;
 import org.springframework.security.core.userdetails.User;
@@ -20,7 +19,6 @@ public class JwtUserDetailsService implements UserDetailsService {
     UserRepository userRepository;
     @Autowired
     PasswordEncoder encoder;
-
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {

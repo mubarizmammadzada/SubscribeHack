@@ -1,7 +1,5 @@
 package com.example.subscribesystem.controllers;
 
-import com.example.subscribesystem.dto.UserLoginDTO;
-import com.example.subscribesystem.models.MyUser;
 import com.example.subscribesystem.repositories.UserRepository;
 import com.example.subscribesystem.service.JwtRequest;
 import com.example.subscribesystem.service.JwtResponse;
@@ -46,10 +44,7 @@ public class JwtController {
 
         final String token = jwtTokenUtil.generateToken(userDetails);
 
-        UserLoginDTO userLoginDTO=new UserLoginDTO();
-        MyUser user=userRepository.findByEmail(req.getEmail()).get();
-       userLoginDTO=UserLoginDTO.builder().token(token).name(user.getName()).surname(user.getSurname()).id(user.getId()).build();
-        return ResponseEntity.ok( userLoginDTO);
+        return ResponseEntity.ok(new JwtResponse(token));
     }
 
     private void authenticate(String email, String password) throws Exception {

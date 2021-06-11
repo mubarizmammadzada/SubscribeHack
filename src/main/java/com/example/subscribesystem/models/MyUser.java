@@ -1,13 +1,11 @@
 package com.example.subscribesystem.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
@@ -36,9 +34,4 @@ public class MyUser {
         this.username = username;
         this.isVerificated = isVerificated;
     }
-    @OneToMany(targetEntity = Reminder.class)
-    @JsonBackReference
-    private List<Reminder> reminders;
-    @ManyToMany
-    private List<Platform> platformList;
 }

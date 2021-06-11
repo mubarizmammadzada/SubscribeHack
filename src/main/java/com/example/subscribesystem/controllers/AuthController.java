@@ -1,6 +1,5 @@
 package com.example.subscribesystem.controllers;
 
-import com.example.subscribesystem.dto.UserPostDTO;
 import com.example.subscribesystem.repositories.UserRepository;
 import com.example.subscribesystem.models.MyUser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,7 @@ public class AuthController {
     @Autowired
     PasswordEncoder encoder;
     @PostMapping("/signup")
-    public ResponseEntity<?> register(@RequestBody UserPostDTO user){
+    public ResponseEntity<?> register(@RequestBody MyUser user){
         if (userRepository.existsByUsername(user.getUsername())) {
             return ResponseEntity.badRequest().body("This username already exist!!");
         }
